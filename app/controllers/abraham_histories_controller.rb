@@ -3,7 +3,7 @@
 class AbrahamHistoriesController < ApplicationController
   def create
     @abraham_history = AbrahamHistory.new(abraham_history_params)
-    @abraham_history.creator_id = current_user.id
+    @abraham_history.creator_id = current_account.id
     respond_to do |format|
       if @abraham_history.save
         format.json { render json: @abraham_history, status: :created }

@@ -4,7 +4,7 @@ class ToursTest < ApplicationSystemTestCase
   setup do
     @user_id = Random.rand(1..99999)
     @cookie_name = "abraham-dummy-#{@user_id}-dashboard-home-intro"
-    ApplicationController.any_instance.stubs(:current_user).returns(OpenStruct.new(id: @user_id))
+    ApplicationController.any_instance.stubs(:current_account).returns(OpenStruct.new(id: @user_id))
   end
 
   test "see and complete a tour" do
@@ -26,7 +26,7 @@ class ToursTest < ApplicationSystemTestCase
 
     # Tour Step 3 (should be skipped)
     refute_selector ".shepherd-header", text: "ENGLISH A missing step"
-    
+
     # Tour Step 4
     assert_selector ".shepherd-header", text: "ENGLISH The final step"
     assert_selector ".shepherd-text", text: "ENGLISH Some text here too, and it's attached to the right"

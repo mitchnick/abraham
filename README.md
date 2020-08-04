@@ -15,7 +15,7 @@ Abraham injects dynamically-generated [Shepherd](https://shepherdjs.dev/) JavaSc
 
 ## Requirements
 
-Abraham needs to know the current user to track tour views, e.g. `current_user` from Devise.
+Abraham needs to know the current user to track tour views, e.g. `current_account` from Devise.
 
 ## Installation
 
@@ -83,7 +83,7 @@ config/
 └── tours/
     └── blog/
     │   ├── show.en.yml
-    │   └── show.es.yml    
+    │   └── show.es.yml
     └── articles/
         ├── index.en.yml
         ├── index.es.yml

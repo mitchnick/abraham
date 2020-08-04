@@ -9,7 +9,7 @@ module AbrahamHelper
 
     if tours
       completed = AbrahamHistory.where(
-        creator_id: current_user.id,
+        creator_id: current_account.id,
         controller_name: controller_name,
         action_name: action_name
       )
@@ -25,7 +25,7 @@ module AbrahamHelper
   end
 
   def abraham_cookie_prefix
-    "abraham-#{Rails.application.class.parent.to_s.underscore}-#{current_user.id}-#{controller_name}-#{action_name}"
+    "abraham-#{Rails.application.class.parent.to_s.underscore}-#{current_account.id}-#{controller_name}-#{action_name}"
   end
 
   def abraham_domain
